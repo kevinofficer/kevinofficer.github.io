@@ -1,4 +1,9 @@
 <html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
 <body>
 <table border="1"> <!-- table of rows -->
 	<caption> <!-- caption to be visually hidden -->
@@ -136,5 +141,21 @@
 	</tr>
 	</tbody>
 </table>
+
+  <div class="col-md-3">
+    <div class=" form-group"><div>
+<label for="firstName" id="firstNameLabel" class=" Required hasHelpText">First Name
+  <button tabindex="0" data-toggle="popover" data-content="Please write the volunteer's full name as shown in official documents, such as their passport." aria-hidden="true" class="helptext" data-original-title="Question Guidance">&nbsp;</button>
+</label>
+           
+<input id="firstName" name="firstName" aria-required="true" type="text" class="form-control" value="">
+</div></div>
+</div>
+
+<script>
+$('.helptext').popover({
+  trigger: 'focus'
+});
+</script>
 </body>
 </html>
