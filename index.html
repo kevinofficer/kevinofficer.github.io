@@ -1,162 +1,245 @@
 <html>
 <head>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title> DAC Table example </title>
+
+    <style>
+        html {
+            font-size: 16px;
+        }
+        body {
+            padding: 0.25rem;
+            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        }
+
+        button {
+            margin-bottom: 0.5rem;
+        }
+
+        .volunteer-card {
+            border: 2px solid black;
+            position: relative;
+        }
+
+        .inner-card {
+            position: relative;
+            margin-bottom: 2rem;
+            margin-left: 1rem;
+        }
+        .inner-card:after {
+            /* Clear floats after the columns */
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .col-left-25 {
+            width: 35%;
+            display: inline;
+            float: left;
+        }
+
+        .col-right-75 {
+            width: 60%;
+            padding-left: 1rem;
+            display: inline;
+            float: left;
+        }
+
+        .col-full-100 {
+            width: 100%;
+            display: inline;
+            float: left;
+        }
+
+        dt {
+            font-weight: 800;
+        }
+        dt, dd {
+            margin: 0px;
+            display: inline;
+        }
+        dd {
+            margin-left: 1em;
+        }
+        dd::after {
+            content: " ";
+            display: block;
+        }
+        .address > dd {
+            display: block;
+            margin-left: 2px;
+        }
+
+        .interest {
+            border: 1px dotted DarkGray;
+        }
+
+        table {
+            border: 0px;
+        }
+        tr {
+            border-bottom: 2px solid DarkGray;
+        }
+        th, td {
+            border-right: 2px solid DarkGray;
+        }
+
+        .sr-only {
+            position:    absolute !important;
+            overflow:    hidden   !important;
+            white-space: nowrap   !important;
+            width:   1px !important;
+            height:  1px !important;
+            margin: -1px !important;
+            padding: 0   !important;
+            border:  0   !important;
+            clip: rect(1px, 1px, 1px, 1px) !important;
+            -webkit-clip-path: inset(50%) !important;
+            clip-path: inset(50%) !important;
+        }
+
+
+    </style>
+
 </head>
 <body>
-<table border="1"> <!-- table of rows -->
-	<caption> <!-- caption to be visually hidden -->
-		Table of volunteers
-	</caption>
-	<thead>
-	<tr>
-		<th scope="col">Volunteer</th>
-		<th scope="col">Potential Study Matches</th>
-	</tr>
-	</thead>
+<main>
+    <h1> List of Volunteers</h1>
+    <div class="volunteer-card">
+        <h2> Volunteer Card: John Smith</h2>
+        <div class="inner-card">
+            <div class="col-left-25">
+                <div>
+                    <h3>Volunteer Information</h3>
+                    <dl>
+                        <dt>Name:</dt>
+                        <dd>Mr John Smith</dd>
+                        <dt>Date of Birth:</dt>
+                        <dd>01/01/1991</dd>
+                        <dt>Address</dt>
+                        <div class="address">
+                            <dd>11 Roseword Drive</dd>
+                            <dd>AA11 1AA</dd>
+                        </div>
+                    </dl>
+                    <div>
+                        <button>
+                            Update/Add information
+                            <span class="sr-only"> for John Smith</span>
+                        </button>
+                        <br>
+                        If you would like to change your email address <br>
+                        or delete your account, go to
+                        <a href="/account">My Account</a>
+                    </div>
+                </div>
+            </div>
 
-	<tbody>
-	<tr> <!-- vol card 1 (start) -->
-		<td colspan="2">
-			<table> <!-- nested table to capture 2 rows of nested tables (start) -->
-				<tr> <!-- row 1 (start) -->
-					<td> <!-- left side (start) -->
-						<table> <!-- nested table 1 (start) -->
-							<caption>Table of Volunteer Information</caption>
-							<thead>
-							<tr>
-								<th scope="col">Volunteer Information</th>
-							</tr>
-							</thead>
-							<tbody>
-							<tr>
-								<td>Mr John Smith</td>
-							</tr>
-							<tr>
-								<td>Date of Birth</td>
-							</tr>
-							<tr>
-								<td>01/01/1991</td>
-							</tr>
-							<tr>
-								<td>Address</td>
-							</tr>
-							<tr>
-								<td>11 Roseword Drive</td>
-							</tr>
-							<tr>
-								<td>AA11 1AA</td>
-							</tr>
-							<tr>
-								<td>
-									<button>Update/Add information</button>
-								</td>
-							</tr>
-							<tr>
-								<td>If you would like to change your email address or delete your account, go to <a
-										href="/account">My Account</a></td>
-							</tr>
-							</tbody>
-						</table> <!-- nested table 1 (end) -->
-					</td> <!-- left side (end) -->
+            <div class="col-right-75">
+                <table>
+                    <caption class="sr-only"><h3>Table of Enrolled Studies for John Smith</h3></caption>
+                    <thead>
+                    <tr>
+                        <th>Enrolled Studies</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Study 1</td>
+                        <td>01/01/2021</td>
+                        <td>01/01/2022</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <br>
 
-					<td> <!-- right side (start) -->
-						<table> <!-- nested table 2 (start) -->
-							<caption>Table of Study Information</caption>
-							<thead>
-							<tr>
-								<th scope="col">Study Information</th>
-							</tr>
-							</thead>
-							<tbody>
-							<tr>
-								<th scope="col">Enrolled Studies</th>
-								<th scope="col">Start Date</th>
-								<th scope="col">End Date</th>
-							</tr>
-							<tr>
-								<td>Study 1</td>
-								<td>01/01/2021</td>
-								<td>01/01/2022</td>
-							</tr>
-							<tr>
-								<td>If you would like to express interest in...</td>
-							</tr>
-							<tr>
-								<th scope="col">Matched Study</th>
-								<th scope="col">Start Date</th>
-								<th scope="col">End Date</th>
-								<th scope="col">Interested?</th>
-							</tr>
-							<tr>
-								<td>Study A</td>
-								<td>01/01/2021</td>
-								<td>01/01/2022</td>
-								<td>Screening</td>
-							</tr>
-							<tr>
-								<td>
-									<input type="checkbox">Subscribe to alerts
-								</td>
-							</tr>
-							</tbody>
-						</table> <!-- nested table 2 (end) -->
-					</td> <!-- right side (end) -->
-				</tr> <!-- row 1 (end) -->
+                <h3>If you would like to express interest in...</h3>
+                <table>
+                    <caption class="sr-only"><h3>Matched Studies for John Smith</h3></caption>
+                    <thead>
+                    <tr>
+                        <th>Matched Study</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Interested?</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Study 1</td>
+                        <td>01/01/2021</td>
+                        <td>01/01/2022</td>
+                        <td>Screening</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <input type="checkbox" id="alerts">
+                            <label for="alerts">Subscribe to alerts</label>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <br>
+            </div>
 
-				<tr> <!-- row 2 (start) -->
-					<td colspan="2"> <!-- row 2 span full table (start) -->
-						<table> <!-- nested table 3 (start) -->
-							<caption>Table of Notes and Comments</caption>
-							<thead>
-							<tr>
-								<th scope="col">Notes and Comments</th>
-							</tr>
-							</thead>
-							<tbody>
-							<tr>
-								<th scope="col">Notes from the Research Teams</th>
-							</tr>
-							<tr>
-								<td>This is a note</td>
-							</tr>
-							<tr>
-								<th scope="col">Comments(1)</th>
-							</tr>
-							<tr>
-								<td>This is a comment</td>
-							</tr>
-							</tbody>
-						</table> <!-- nested table 3 (end) -->
-					</td> <!-- row 2 span full table (end) -->
-				</tr> <!-- row 2 (end) -->
-			</table> <!-- nested table to capture 2 rows of nested tables (end) -->
-		</td>
-	</tr> <!-- vol card 1 (end) -->
+            <div class="col-full-100">
+                <h3>Notes and comments</h3>
+                <div>
+                    <h4>Notes from the Research Teams</h4>
+                    <div>This is a note: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                        ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+                        in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </div>
+                    <div>This is another note</div>
+                </div>
+                <div>
+                    <h4>Comments (1)</h4>
+                    <div>This is a comment: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                        occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </div>
+                </div>
+            </div>
 
-	<!-- empty card -->
-	<tr>
-		<td colspan="2">Vounteer Card 2</td>
-	</tr>
-	</tbody>
-</table>
-<br>
-<br>
-  <div class="col-md-3">
-    <div class=" form-group"><div>
-<label for="firstName" id="firstNameLabel" class=" Required hasHelpText">First Name
-  <button tabindex="0" data-toggle="popover" data-content="Please write the volunteer's full name as shown in official documents, such as their passport." aria-hidden="true" class="helptext" data-original-title="Question Guidance">&nbsp;</button>
-</label>
-           
-<input id="firstName" name="firstName" aria-required="true" type="text" class="form-control" value="">
-</div></div>
-</div>
+        </div>
+    </div>
+    <div class="volunteer-card">
+        <h2> Volunteer Card: Jane Doe</h2>
+        <div class="inner-card">
+
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="col-md-3">
+        <div class=" form-group">
+            <div>
+                <label for="firstName" id="firstNameLabel" class=" Required hasHelpText">First Name
+                    <button tabindex="0" data-toggle="popover"
+                            data-content="Please write the volunteer's full name as shown in official documents, such as their passport."
+                            aria-hidden="true" class="helptext" data-original-title="Question Guidance">&nbsp;
+                    </button>
+                </label>
+
+                <input id="firstName" name="firstName" aria-required="true" type="text" class="form-control" value="">
+            </div>
+        </div>
+    </div>
+</main>
 
 <script>
-$('.helptext').popover({
-  trigger: 'focus'
-});
+    $('.helptext').popover({
+        trigger: 'focus'
+    });
 </script>
 </body>
 </html>
