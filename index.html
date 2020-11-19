@@ -109,137 +109,194 @@
 <main>
     <h1> List of Volunteers</h1>
     <div class="volunteer-card">
-        <h2> Volunteer Card: John Smith</h2>
+    <h2>Volunteer Card: John Smith</h2>
+    <div class="col-left-25">
         <div class="inner-card">
-            <div class="col-left-25">
-                <div>
-                    <h3>Volunteer Information</h3>
-                    <dl>
-                        <dt>Name:</dt>
-                        <dd>Mr John Smith</dd>
-                        <dt>Date of Birth:</dt>
-                        <dd>01/01/1991</dd>
-                        <dt>Address</dt>
-                        <div class="address">
-                            <dd>11 Roseword Drive</dd>
-                            <dd>AA11 1AA</dd>
-                        </div>
-                    </dl>
-                    <div>
-                        <button>
-                            Update/Add information
-                            <span class="sr-only"> for John Smith</span>
-                        </button>
-                        <br>
-                        If you would like to change your email address <br>
-                        or delete your account, go to
-                        <a href="/account">My Account</a>
-                    </div>
+            <h3>Volunteer Information</h3>
+
+            <dl>
+                <dt>Name:</dt>
+                <dd>John Smith</dd>
+                <dt>Date of Birth:</dt>
+                <dd>01/01/1991</dd>
+                <td>Address:</td>
+                <div class="address">
+                    <dd>11 Rosewood Drive</dd>
+                    <dd>AA11 1AA</dd>
                 </div>
+            </dl>
+            <div>
+                <button class="form-control btn btn-primary" href="/demographics?volunteerid=41192">
+                    Update / Add information <span class="sr-only"> for John Smith</span>
+                </button>
+                <p>If you would like to change your email address or delete your account, go to <a
+                        href="/account">My Account</a></p>
             </div>
-
-            <div class="col-right-75">
-                <table>
-                    <caption class="sr-only"><h3>Table of Enrolled Studies for John Smith</h3></caption>
-                    <thead>
-                    <tr>
-                        <th>Enrolled Studies</th>
-                        <th>Start Date</th>
-                        <th>End Date</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>Study 1</td>
-                        <td>01/01/2021</td>
-                        <td>01/01/2022</td>
-                    </tr>
-                    </tbody>
-                </table>
-                <br>
-
-                <h3>If you would like to express interest in...</h3>
-                <table>
-                    <caption class="sr-only"><h3>Matched Studies for John Smith</h3></caption>
-                    <thead>
-                    <tr>
-                        <th>Matched Study</th>
-                        <th>Start Date</th>
-                        <th>End Date</th>
-                        <th>Interested?</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>Study 1</td>
-                        <td>01/01/2021</td>
-                        <td>01/01/2022</td>
-                        <td>Screening</td>
-                    </tr>
+        </div>
+    </div>
+    <div class="col-right-75" style="vertical-align: top">
+        <div class="reverseAction">
+            <table class="studyList"><!-- studiesUserEnrolledOn  -->
+                <caption class="sr-only">Enrolled Studies for John Smith</caption>
+                <thead role="row" class="row">
+                <tr>
+                    <th class="col-md-6">
+                        Enrolled Studies
+                    </th>
+                    <th class="col-md-3">
+                        Start Date
+                    </th>
+                    <th class="col-md-3">
+                        End Date
+                    </th>
+                </tr>
+                </thead>
+                <form class="reverseFeasibilityEnrolledLazyLoad" method="get"
+                      action="/volunteer/reversefeasibilityenrolledstudies" style="display: none;" aria-hidden="true">
                     <tr>
                         <td colspan="4">
-                            <input type="checkbox" id="alerts">
-                            <label for="alerts">Subscribe to alerts</label>
+                            <input type="hidden" name="volunteerid" value="41192">
+                            <img src="/images/core/spinner.gif" class="lazyLoadSpinner" alt="Loading icon">
                         </td>
                     </tr>
-                    </tbody>
-                </table>
-                <br>
-            </div>
+                </form>
+                <tbody class="reverseEnrolledContent">
+                <tr>
+                    <td>No enrolled studies</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <p>
+            If you would like to express interest in a study then check the box. Note that this is not required and you may be contacted about other studies.
+        </p>
+        <div class="reverseAction">
+            <table class="studyList"><!-- studiesUserMatchesTo  -->
+                <h3 class="sr-only">Matched Studies for John Smith</h3>
+                <thead class="row">
+                <th class="col-md-6">
+                    Matched Study
+                </th>
+                <th class="col-md-2">
+                    Start Date
+                </th>
+                <th class="col-md-2">
+                    End Date
+                </th>
+                <th class="col-md-2">
+                    Interested?
+                </th>
+                </thead>
+                <form class="reverseFeasibilityLazyLoad" method="get"
+                      action="/volunteer/reversefeasibilitymatchedstudies" style="display: none;" aria-hidden="true">
+                    <tr>
+                        <td colspan="4">
+                            <input type="hidden" name="volunteerid" value="41192">
+                            <img src="/images/core/spinner.gif" class="lazyLoadSpinner" alt="Loading icon">
+                        </td>
+                    </tr>
+                </form>
+                <tbody class="reverseContent">
+                <tr>
+                    <td class="col-md-6">
+                        <a href="#laySummary533">Purple Study
+                        </a>
+                    </td>
+                    <td class="col-md-2">
+                        21/11/2019
+                    </td>
+                    <td class="col-md-2">
+                        26/11/2020
+                    </td>
+                    <td class="col-md-2">
+                        <form class="studyInterest">
+                            <span class="volunteerEnrolmentStatus">screening</span>
+                        </form>
+                    </td>
+                </tr>
 
-            <div class="col-full-100">
-                <h3>Notes and comments</h3>
-                <div>
-                    <h4>Notes from the Research Teams</h4>
-                    <div>This is a note: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                        ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-                        in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </div>
-                    <div>This is another note</div>
-                </div>
-                <div>
-                    <h4>Comments (1)</h4>
-                    <div>This is a comment: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                        occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </div>
-                </div>
-            </div>
+                <tr>
+                    <td class="col-md-6">
+                        <a href="#laySummary23">PROTECT Study</a>
+                    </td>
+                    <td class="col-md-2">
+                        08/11/2014
+                    </td>
+                    <td class="col-md-2">
+                        08/11/2035
+                    </td>
+                    <td class="col-md-2">
+                        <form class="studyInterest">
+                            <input type="hidden" name="volunteerid" value="41192">
+                            <input type="hidden" name="studyid" value="23">
+                            <label for="interest_41192_23" class="sr-only">
+                                Express interest
+                            </label>
 
+                            <p>click study</p>
+                        </form>
+                    </td>
+                </tr>
+                <tr>
+                    <form class="volunteerStudyAlertForm large-gap-top">
+                        <td colspan="4">
+                            <input type="hidden" name="volunteerid" value="41192">
+                            <span><input id="sendStudyAlertsCheckbox" type="checkbox" name="sendStudyAlerts"
+                                         value="true" aria-describedby="sendStudyAlertsCheckboxtooltip"
+                                         checked=""></span>
+                            <label for="sendStudyAlertsCheckbox" style="display:inline">Subscribe to study
+                                alerts for this volunteer</label>
+                            <span data-helptext="You will receive alerts by email informing you of new studies that you may be eligible for"
+                                  class=" helptext" data-toggle="popover"
+                                  data-original-title="Question Guidance">&nbsp;</span>
+                            <div class="hidden" id="sendStudyAlertsCheckboxtooltip" role="tooltip">You will
+                                receive alerts by email informing you of new studies that you may be eligible
+                                for
+                            </div>
+                        </td>
+                    </form>
+                </tr>
+                </tbody>
+            </table>
         </div>
     </div>
-    <div class="volunteer-card">
-        <h2> Volunteer Card: Jane Doe</h2>
-        <div class="inner-card">
+    <div class="col-md-12">
+        <h3 class="sr-only">Notes and comments</h3>
+        <div>
+            <h4>Notes from the Research Teams</h4>
 
-        </div>
-    </div>
-    <br>
-    <br>
-    <div class="col-md-3">
-        <div class=" form-group">
-            <div>
-                <label for="firstName" id="firstNameLabel" class=" Required hasHelpText">First Name
-                    <button tabindex="0" data-toggle="popover"
-                            data-content="Please write the volunteer's full name as shown in official documents, such as their passport."
-                            aria-hidden="true" class="helptext" data-original-title="Question Guidance">&nbsp;
-                    </button>
-                </label>
+            <div class="volunteerCommentsRead">
+                <h4 style="font-size: 16.8px; color:#bd007a">
+                    Comments (0)
+                </h4>
 
-                <input id="firstName" name="firstName" aria-required="true" type="text" class="form-control" value="">
+                <section class="volunteerCard volunteerCommentsTable" style="display:none;">
+                    <section class="row hidden-sm hidden-xs volunteerTable">
+                        <section class="col-md-2">
+                            <h3>Date</h3>
+                        </section>
+                        <section class="col-md-3">
+                            <h3>User</h3>
+                        </section>
+                        <section class="col-md-6">
+                            <h3>Comment</h3>
+                        </section>
+                    </section>
+
+
+                    <section class="row">
+                        <section class="col-md-12">
+                            No comments.
+                        </section>
+                    </section>
+
+
+                </section>
+
             </div>
         </div>
     </div>
+</div>
 </main>
-
-<script>
-    $('.helptext').popover({
-        trigger: 'focus'
-    });
-</script>
 </body>
 </html>
